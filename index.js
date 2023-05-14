@@ -9,6 +9,7 @@ async function getFile(filePath) {
   const encoding = "utf-8";
   try {
     const text = await fs.promises.readFile(filePath, encoding);
+    console.log("text", text);
   } catch (err) {
     handleError(err);
   } finally {
@@ -16,4 +17,14 @@ async function getFile(filePath) {
   }
 }
 
-getFile();
+function extractLinks(text) {
+  const regex = /\[([^\]]*)\]\((https?:\/[^$#\s].[^\s]*)\)/gm;
+  const arrayResult = [];
+  let temporary;
+  while ((temporary = regex.exec(text)) !== null) {
+    arrayResult.push(temporary);
+  }
+
+  console.log(arrayResult);
+}
+export { getFile };

@@ -9,7 +9,7 @@ async function getFile(filePath) {
   const encoding = "utf-8";
   try {
     const text = await fs.promises.readFile(filePath, encoding);
-    console.log("text", text);
+    return extractLinks(text);
   } catch (err) {
     handleError(err);
   } finally {
@@ -25,6 +25,6 @@ function extractLinks(text) {
     arrayResult.push(temporary);
   }
 
-  console.log(arrayResult);
+  return arrayResult;
 }
 export { getFile };

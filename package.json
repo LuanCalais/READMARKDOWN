@@ -12,6 +12,7 @@
   "author": "Luan S Calais",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^5.0.1"
+    "chalk": "^5.0.1",
+    "node-fetch": "^3.3.1"
   }
 }

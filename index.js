@@ -2,7 +2,7 @@ import fs from "fs";
 import chalk from "chalk";
 
 function handleError(err) {
-  throw new Error(err.code, chalk.bgRedBright("File not found"));
+  throw new Error(chalk.bgRedBright(`File not found, ${err.code}`));
 }
 
 async function getFile(filePath) {
